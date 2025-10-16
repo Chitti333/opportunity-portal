@@ -1,0 +1,35 @@
+digraph LoginFlow {
+    rankdir=TB;
+    node [shape=box, style=rounded];
+
+    Start [label="Start"];
+    Submit [label="User submits regNo and password"];
+    Verify [label="Backend verifies credentials"];
+    Incorrect [label="Credentials Incorrect"];
+    DisplayError [label="Display error on frontend"];
+    Correct [label="Credentials Correct"];
+    CheckRole [label="Check User Role"];
+    FirstLogin [label="First login with default password?"];
+    ResetPopup [label="Prompt Reset Password Popup"];
+    RoleHome [label="Redirect to role-specific home page"];
+    ForgotPassword [label="Forgot Password?"];
+    OTPRequest [label="Send OTP to college email"];
+    VerifyOTP [label="OTP Verification"];
+    ResetPassword [label="Password Reset with validation"];
+    End [label="End"];
+
+    Start -> Submit;
+    Submit -> Verify;
+    Verify -> Incorrect [label="No"];
+    Verify -> Correct [label="Yes"];
+    Incorrect -> DisplayError -> End;
+
+    Correct -> CheckRole;
+    CheckRole -> FirstLogin;
+    FirstLogin -> ResetPopup [label="Yes"];
+    FirstLogin -> RoleHome [label="No"];
+    ResetPopup -> RoleHome;
+
+    Submit -> ForgotPassword [style=dashed, label="Forgot Password"];
+    ForgotPassword -> OTPRequest -> VerifyOTP -> ResetPassword -> RoleHome;
+}
