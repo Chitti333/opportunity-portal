@@ -11,7 +11,7 @@ export const sendOtpEmail = async (to, otp) => {
 
   const mailOptions = {
     from: `"Opportunity Portal" <${process.env.EMAIL_USER}>`,
-    to,
+    to:to,
     subject: 'Your OTP Code',
     text: `Your OTP is ${otp}. It will expire in 10 minutes.`,
   };

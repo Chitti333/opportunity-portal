@@ -1,16 +1,15 @@
-const User = require("../models/User");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-const { generateOtp } = require("../utils/generateOtp");
-const { sendOtpEmail } = require("../utils/sendEmail");
+import User from "../models/User.js";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import { generateOtp } from "../utils/generateOtp.js";
+import { sendOtpEmail } from "../utils/sendEmail.js";
 
 // @desc Login user
 // @route POST /api/auth/login
 // @access Public
-exports.login = async (req, res) => {
-  const { regNo, password } = req.body;
+export const login = async (req, res) => {
+  let { regNo, password } = req.body;
   regNo = regNo.trim().toUpperCase();
-
 
   try {
     const user = await User.findOne({ regNo });
@@ -29,15 +28,18 @@ exports.login = async (req, res) => {
 
     // Generate JWT
     const token = jwt.sign(
-      { id: user._id, role: user.role },
+      { id: user._id, role: user.role, regNo: user.regNo },
       process.env.JWT_SECRET,
       { expiresIn: "1h" }
     );
 
     res.status(200).json({
       token,
-      role: user.role,
-      message: "Login successful",
+      user: {
+        regNo: user.regNo,
+        emailCollege: user.emailCollege,
+        role: user.role,
+      },
     });
   } catch (err) {
     console.error(err);
@@ -48,7 +50,7 @@ exports.login = async (req, res) => {
 // @desc Request OTP for password reset
 // @route POST /api/auth/request-otp
 // @access Public
-exports.requestOtp = async (req, res) => {
+export const requestOtp = async (req, res) => {
   let { regNo } = req.body;
   if (!regNo) return res.status(400).json({ message: "regNo is required" });
 
@@ -72,14 +74,12 @@ exports.requestOtp = async (req, res) => {
   }
 };
 
-
 // @desc Verify OTP
 // @route POST /api/auth/verify-otp
 // @access Public
-exports.verifyOtp = async (req, res) => {
-  const { regNo, otp } = req.body;
+export const verifyOtp = async (req, res) => {
+  let { regNo, otp } = req.body;
   regNo = regNo.trim().toUpperCase();
-
 
   try {
     const user = await User.findOne({ regNo });
@@ -103,10 +103,9 @@ exports.verifyOtp = async (req, res) => {
 // @desc Reset Password
 // @route POST /api/auth/reset-password
 // @access Public
-exports.resetPassword = async (req, res) => {
-  const { regNo, newPassword, confirmPassword } = req.body;
-regNo = regNo.trim().toUpperCase();
-
+export const resetPassword = async (req, res) => {
+  let { regNo, newPassword, confirmPassword } = req.body;
+  regNo = regNo.trim().toUpperCase();
 
   try {
     if (newPassword !== confirmPassword) {
@@ -116,7 +115,7 @@ regNo = regNo.trim().toUpperCase();
     const user = await User.findOne({ regNo });
     if (!user) return res.status(404).json({ message: "User not found" });
 
-    user.password = newPassword;  // Will be hashed automatically via pre-save
+    user.password = newPassword; // Will be hashed automatically via pre-save hook
     user.otp = null;
     user.otpExpiry = null;
     user.isFirstLogin = false;
