@@ -1,0 +1,68 @@
+[
+  {
+    "companyName": "TechCorp",
+    "jobTitle": "Frontend Developer Intern",
+    "applicationLink": "https://techcorp.com/apply",
+    "jobDescription": "Work on React projects and UI development.",
+    "eligibleGraduationYears": [2025, 2026],
+    "additionalInformation": "Remote internship available.",
+    "dueDate": "2025-12-31T23:59:59.999Z",
+    "registeredStudents": [],
+    "notRegisteredStudents": [],
+    "ignoredStudents": [],
+    "postedBy" : "68f0aa7f0da5558296b82f69"
+  },
+  {
+    "companyName": "InnovateX",
+    "jobTitle": "Backend Developer Intern",
+    "applicationLink": "https://innovatex.com/apply",
+    "jobDescription": "Work on Node.js and database APIs.",
+    "eligibleGraduationYears": [2025],
+    "additionalInformation": "Stipend provided.",
+    "dueDate": "2025-11-30T23:59:59.999Z",
+    "registeredStudents": [],
+    "notRegisteredStudents": [],
+    "ignoredStudents": [],
+    "postedBy" : "68f0aa7f0da5558296b82f69"
+
+  },
+  {
+    "companyName": "DataWorks",
+    "jobTitle": "Data Analyst Intern",
+    "applicationLink": "https://dataworks.com/apply",
+    "jobDescription": "Analyze datasets using Python and SQL.",
+    "eligibleGraduationYears": [2026, 2027],
+    "additionalInformation": "Work from college lab.",
+    "dueDate": "2025-10-31T23:59:59.999Z",
+    "registeredStudents": [],
+    "notRegisteredStudents": [],
+    "ignoredStudents": [],
+    "postedBy" : "68f0aa7f0da5558296b82f69"
+  },
+  {
+    "companyName": "CyberSecure",
+    "jobTitle": "Cybersecurity Intern",
+    "applicationLink": "https://cybersecure.com/apply",
+    "jobDescription": "Assist in security audits and penetration testing.",
+    "eligibleGraduationYears": [2025, 2026],
+    "additionalInformation": "On-site internship only.",
+    "dueDate": "2025-12-15T23:59:59.999Z",
+    "registeredStudents": [],
+    "notRegisteredStudents": [],
+    "ignoredStudents": [],
+    "postedBy" : "68f0aa7f0da5558296b82f69"
+  },
+  {
+    "companyName": "AI Solutions",
+    "jobTitle": "AI/ML Intern",
+    "applicationLink": "https://aisolutions.com/apply",
+    "jobDescription": "Work on AI models and ML pipelines.",
+    "eligibleGraduationYears": [2025, 2026, 2027],
+    "additionalInformation": "Hands-on AI projects.",
+    "dueDate": "2026-01-15T23:59:59.999Z",
+    "registeredStudents": [],
+    "notRegisteredStudents": [],
+    "ignoredStudents": [],
+    "postedBy" : "68f0aa7f0da5558296b82f69"
+  }
+]

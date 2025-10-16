@@ -1,0 +1,50 @@
+[
+  {
+    "regNo": "S1001",
+    "password": "default123",
+    "role": "student",
+    "emailCollege": "23b01a4565@svecw.edu.in",
+    "emailPersonal": "s1@gmail.com",
+    "phoneNo": "9000000001",
+    "branchSection": "CSE-A",
+    "graduationYear": 2025,
+    "otp": null,
+    "otpExpiry": null,
+    "isFirstLogin": true
+  },
+  {
+    "regNo": "S1002",
+    "password": "default123",
+    "role": "student",
+    "emailCollege": "23b01a4540@svecw.edu.in",
+    "emailPersonal": "s1@gmail.com",
+    "phoneNo": "9000000001",
+    "branchSection": "CSE-A",
+    "graduationYear": 2025,
+    "otp": null,
+    "otpExpiry": null,
+    "isFirstLogin": true
+  },
+  {
+    "regNo": "F2001",
+    "password": "default123",
+    "role": "faculty",
+    "emailCollege": "23b01a4504@svecw.edu.in",
+    "emailPersonal": "f1@gmail.com",
+    "phoneNo": "9010000001",
+    "otp": null,
+    "otpExpiry": null,
+    "isFirstLogin": true
+  },
+  {
+    "regNo": "F2002",
+    "password": "default123",
+    "role": "faculty",
+    "emailCollege": "23b01a4564@svecw.edu.in",
+    "emailPersonal": "f2@gmail.com",
+    "phoneNo": "9010000002",
+    "otp": null,
+    "otpExpiry": null,
+    "isFirstLogin": true
+  }
+]
