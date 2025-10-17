@@ -53,9 +53,10 @@ export default function Login() {
       // Redirect based on role
       console.log('Login response data:', res.data);
       const { role, isFirstLogin } = res.data;
+      console.log(role + " " + isFirstLogin);
       if (isFirstLogin) {
         toast.info('Please reset your password.');
-        router.push('/reset-password');
+        setTimeout(() => router.push('/reset-password'), 500);
       } else if (role === 'faculty') {
         router.push('/faculty/home');
       } else {
