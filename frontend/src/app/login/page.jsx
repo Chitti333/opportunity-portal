@@ -45,7 +45,7 @@ export default function Login() {
     setLoading(true);
 
     try {
-      const res = await api.post('/login', formData);
+      const res = await api.post('/auth/login', formData);
       toast.success('Login successful!');
       localStorage.setItem('token', res.data.token);
 
@@ -54,10 +54,10 @@ export default function Login() {
       if (isFirstLogin) {
         toast.info('Please reset your password.');
         router.push('/reset-password');
-      } else if (role === 'admin') {
-        router.push('/admin/home');
+      } else if (role === 'student') {
+        router.push('/student/home');
       } else {
-        router.push('/user/home');
+        router.push('/faculty/home');
       }
     } catch (err) {
       toast.error(err.response?.data?.message || 'Login failed. Try again.');
@@ -91,7 +91,7 @@ export default function Login() {
             value={formData.password}
             onChange={handleChange}
             required
-            InputProps={{
+            slotProps={{
               endAdornment: (
                 <InputAdornment position="end">
                   <IconButton onClick={() => setShowPassword((prev) => !prev)} edge="end">
