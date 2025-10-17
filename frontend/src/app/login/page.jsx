@@ -48,16 +48,18 @@ export default function Login() {
       const res = await api.post('/auth/login', formData);
       toast.success('Login successful!');
       localStorage.setItem('token', res.data.token);
+      
 
       // Redirect based on role
+      console.log('Login response data:', res.data);
       const { role, isFirstLogin } = res.data;
       if (isFirstLogin) {
         toast.info('Please reset your password.');
         router.push('/reset-password');
-      } else if (role === 'student') {
-        router.push('/student/home');
-      } else {
+      } else if (role === 'faculty') {
         router.push('/faculty/home');
+      } else {
+        router.push('/student/home');
       }
     } catch (err) {
       toast.error(err.response?.data?.message || 'Login failed. Try again.');
@@ -107,7 +109,7 @@ export default function Login() {
         </Box>
         <Typography variant="body2" align="center" sx={{ mt: 2 }}>
           Forgot your password?{' '}
-          <MuiLink component={Link} href="/forgot-password">
+          <MuiLink component={Link} href="/auth/forgot-password">
             Reset here
           </MuiLink>
         </Typography>

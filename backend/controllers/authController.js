@@ -20,9 +20,11 @@ export const login = async (req, res) => {
 
     // First login with default password enforcement
     if (user.isFirstLogin && password === "default123") {
+      console.log("First login detected for user:", regNo);
       return res.status(200).json({
-        firstLogin: true,
-        message: "Reset password required",
+        role: user.role,
+        isFirstLogin: true,
+        message: "First login detected. Please reset your password.",      
       });
     }
 
